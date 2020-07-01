@@ -52,22 +52,14 @@ Citizen.CreateThread(function()
 			local x,y,z = table.unpack(mark)
 			local distance = GetDistanceBetweenCoords(GetEntityCoords(PlayerPedId()),x,y,z,true)
 			if distance <= 1.2 then
+				DrawMarker(23,238.99,-1381.61,33.74-0.99,1,1,0,0,0,0,1.0,1.0,1.0,255,255,255,50,0,1,0,0)
+			        DrawText3D(238.99,-1381.61,33.74+0.24, "~r~Passos vRP base", 2.0, 4, 150)
+			        DrawText3D(238.99,-1381.61,33.74+0.01, "Pressione ~r~[E]~w~ para acessar o menu do Detran", 2.0, 4, 150)
 				if IsControlJustPressed(0,38) then
 					cnh_nui()
 				end
 			end
 		end
-	end
-end)
-
-Citizen.CreateThread(function()
-	while true do
-		Citizen.Wait(0)
-		if checkDistance() then
-			DrawMarker(23,238.99,-1381.61,33.74-0.99,1,1,0,0,0,0,1.0,1.0,1.0,255,255,255,50,0,1,0,0)
-			DrawText3D(238.99,-1381.61,33.74+0.24, "~r~Passos vRP base", 2.0, 4, 150)
-			DrawText3D(238.99,-1381.61,33.74+0.01, "Pressione ~r~[E]~w~ para acessar o menu do Detran", 2.0, 4, 150)
-		end	 
 	end
 end)
 
@@ -87,18 +79,6 @@ end)
 ----------------------------------------------------------------------------
 -- Funções
 ----------------------------------------------------------------------------
-
-function checkDistance()
-	local ped = GetPlayerPed(-1)
-	local x,y,z = table.unpack(GetEntityCoords(ped))
-	local bowz,cdz = GetGroundZFor_3dCoord(x,y,z)
-	local distance = GetDistanceBetweenCoords(x,y,cdz,238.99,-1381.61,33.74,true)
-	if distance < 10 then
-		return true
-	else
-		return false
-	end		
-end
 
 function DrawText3D(x,y,z, text, scl, font, opacity) 
 	local onScreen,_x,_y=World3dToScreen2d(x,y,z)
