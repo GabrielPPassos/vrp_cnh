@@ -41,7 +41,7 @@ RegisterCommand('remcnh', function(source, args, rawCommand)
 	if args[1] then
 		local outroplayer = parseInt(args[1])
 		local nplayer = vRP.getUserSource(outroplayer)
-		local request_ok = vRP.request(nplayer,"Deseja <b>remover</b> o cnh do cidadão: ".. outroplayer .." ?",30)
+		local request_ok = vRP.request(player,"Deseja <b>remover</b> o cnh do cidadão: ".. outroplayer .." ?",30)
 		if request_ok then
 			vRP.removeUserGroup(outroplayer, grupo_cnh)
 			TriggerClientEvent("Notify", player, "aviso", "Seu CNH foi <b>removido</b> pelo policial: ".. user_id)
