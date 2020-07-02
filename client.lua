@@ -1,7 +1,7 @@
 
 local Tunnel = module("vrp","lib/Tunnel")
 local Proxy = module("vrp","lib/Proxy")
-PassosCL = Tunnel.getInterface("jmc_cnh")
+PassosCL = Tunnel.getInterface("vrp_cnh")
 
 ----------------------------------------------------------------------------
 -- Config
